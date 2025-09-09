@@ -34,6 +34,10 @@
       <header>
         <h1>MANACO</h1>
 
+        <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+          ☰
+        </button>
+
         <nav aria-label="Menú principal">
           <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -60,7 +64,10 @@
 
           <ul class="products" role="list">
             <li role="listitem">
-              <article class="product" aria-labelledby="prod1-title">
+              <article
+                class="product mobile-column"
+                aria-labelledby="prod1-title"
+              >
                 <img
                   src="https://placehold.co/400"
                   alt="Zapato deportivo MANACO modelo 1 en color negro"
@@ -74,7 +81,10 @@
             </li>
 
             <li role="listitem">
-              <article class="product" aria-labelledby="prod2-title">
+              <article
+                class="product mobile-column"
+                aria-labelledby="prod2-title"
+              >
                 <img
                   src="https://placehold.co/400"
                   alt="Zapato casual MANACO modelo 2 en cuero café"
@@ -88,7 +98,10 @@
             </li>
 
             <li role="listitem">
-              <article class="product" aria-labelledby="prod3-title">
+              <article
+                class="product mobile-column"
+                aria-labelledby="prod3-title"
+              >
                 <img
                   src="https://placehold.co/400"
                   alt="Botín MANACO modelo 3 en gamuza azul"
@@ -111,3 +124,14 @@
     </main>
   </body>
 </html>
+
+<script>
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("nav");
+
+  toggle.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true" || false;
+    toggle.setAttribute("aria-expanded", !expanded);
+    nav.classList.toggle("active");
+  });
+</script>

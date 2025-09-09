@@ -20,7 +20,7 @@ body {
   color: var(--accent);
   background: #fff;
   display: flex;
-  justify-content: center; /* centra diseño tipo wireframe */
+  justify-content: center;
   padding: 24px;
 }
 
@@ -38,71 +38,87 @@ body {
   top: 0;
 }
 
-/* Foco visible en enlaces y botones */
+/* Foco visible */
 a:focus,
 button:focus {
-  outline: 3px solid #ff9800; /* naranja accesible */
+  outline: 3px solid #ff9800;
   outline-offset: 2px;
 }
 
-/* caja principal visual (como el marco del wireframe) */
+/* Caja principal */
 main.page {
   width: 100%;
-  max-width: 980px; /* ancho razonable para desktop */
+  max-width: 980px;
   border: 2px solid var(--line);
   border-radius: 6px;
   overflow: hidden;
   background: var(--page-bg);
 }
 
-/* Header: logo (h1) y nav */
+/* Header móvil */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 18px 20px;
   border-bottom: 2px solid var(--line);
-  background: #fff;
+  background: red; /* header rojo en mobile */
 }
 header h1 {
   font-size: 1.25rem;
-  letter-spacing: 1px;
+  color: #fff;
 }
-nav[aria-label] ul {
+
+/* Hamburguesa accesible */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+nav[aria-label="Menú principal"] {
+  display: none;
+}
+nav[aria-label="Menú principal"].active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 10px 0;
+  border-top: 2px solid var(--line);
+}
+nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
   align-items: center;
 }
 nav a {
   text-decoration: none;
   color: var(--accent);
-  font-size: 0.95rem;
-  padding: 6px 8px;
+  font-size: 1rem;
+  padding: 8px 12px;
 }
 
-/* Contenido principal */
+/* Banner oculto en mobile */
 main > section.banner {
-  padding: 28px 22px;
-  margin: 20px;
-  border: 2px solid var(--line);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 1.3rem;
-  line-height: 1.2;
-  background: #f7f7f7;
+  display: none;
 }
 
-/* Sección Productos (título + lista) */
+/* Sección productos */
 section#productos {
-  padding: 0 22px 28px 22px;
+  padding: 0 16px 24px 16px;
 }
 #productos h2 {
   margin: 14px 0;
   font-size: 1.4rem;
 }
 
-/* Lista semántica de productos: mobile = 1 columna */
+/* Productos mobile: cards en fila con imagen derecha */
 ul.products {
   list-style: none;
   display: grid;
@@ -114,21 +130,23 @@ ul.products {
 
 article.product {
   padding: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  border-radius: 10px;
   background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
 }
 
 article.product img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100px; /* imagen reducida */
+  height: auto;
+  border-radius: 6px;
+  margin-left: 12px;
 }
 
 article.product .meta {
   flex: 1;
-  text-align: left;
 }
 article.product h3 {
   font-size: 1rem;
@@ -136,34 +154,60 @@ article.product h3 {
   text-align: left;
 }
 article.product p.price {
-  margin: 0 0 8px 0;
+  margin: 0;
   color: #444;
   font-weight: 600;
   text-align: left;
 }
+/* Botón oculto en móvil */
 article.product button {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-  background: var(--button-bg);
-  cursor: pointer;
-  font-weight: 600;
+  display: none;
 }
 
+/* Footer azul en mobile */
 footer.site-footer {
   border-top: 2px solid var(--line);
   padding: 18px 20px;
   text-align: center;
   font-size: 0.95rem;
-  background: #fff;
+  background: blue;
+  color: #fff;
 }
 
-/* --- Desktop (>=600px) — muestra banner y productos en 3 columnas como en el wireframe --- */
-@media (min-width: 600px) {
-  /* el banner en la imagen es visible en desktop */
-  main > section.banner {
-    margin: 20px;
+/* --- Desktop (>=600px) --- */
+@media (min-width: 601px) {
+  header {
+    background: #fff; /* vuelve blanco */
   }
+  header h1 {
+    color: var(--accent);
+  }
+  .menu-toggle {
+    display: none; /* ocultar hamburguesa */
+  }
+  nav[aria-label="Menú principal"] {
+    display: block;
+    position: static;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  /* Banner visible */
+  main > section.banner {
+    display: block;
+    padding: 28px 22px;
+    margin: 20px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    background: #f7f7f7;
+  }
+
+  /* Productos en 3 columnas tipo card */
   ul.products {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -172,16 +216,35 @@ footer.site-footer {
     align-items: stretch;
     text-align: center;
   }
-  article.product figure {
-    margin: 0 auto 10px auto;
-    width: 100%;
-    height: 160px;
-    display: flex;
-  }
   article.product img {
-    max-width: 100%;
-    max-height: 160px;
-    width: auto;
+    width: 100%;
     height: auto;
+    margin: 0 0 10px 0;
+  }
+  /* Botón vuelve a aparecer */
+  article.product button {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--button-bg);
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
+
+/* Estilos para móvil */
+@media (max-width: 600px) {
+  article.product {
+    border: 1px solid var(--line);
+  }
+
+  article.product .meta {
+    flex-direction: column; /* apila verticalmente */
+    align-items: flex-start; /* alineado a la izquierda */
+  }
+
+  article.product p.price {
+    margin-top: 4px; /* un pequeño espacio entre h3 y p */
   }
 }
