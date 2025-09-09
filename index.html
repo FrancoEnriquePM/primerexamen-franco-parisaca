@@ -4,8 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>MANACO | Calzado que impulsa tu paso</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Skip link -->
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
     <!-- Estructura semántica principal: sin el uso de DIVs -->
     <main class="page" role="document" aria-label="Página principal MANACO">
       <!-- HEADER: logo y navegación -->
@@ -36,62 +40,47 @@
         >
           <h2 id="productos-titulo">Productos</h2>
 
-          <!-- Lista semántica conteniendo 3 articles (cada producto es un article) Use https://placehold.co/400 para mostrar las imagenes por api -->
           <ul class="products" role="list">
             <li role="listitem">
               <article class="product" aria-labelledby="prod1-title">
-                <figure>
-                  <img
-                    src="https://placehold.co/400"
-                    alt="Zapato deportivo MANACO modelo 1"
-                  />
-                </figure>
-
-                <div class="meta">
-                  <h3 id="prod1-title">Producto 1</h3>
-                  <p class="price">$00.00</p>
-                  <button type="button" aria-label="Comprar Producto 1">
-                    Comprar
-                  </button>
-                </div>
+                <img
+                  src="https://placehold.co/400"
+                  alt="Zapato deportivo MANACO modelo 1"
+                />
+                <h3 id="prod1-title">Producto 1</h3>
+                <p class="price">$00.00</p>
+                <button type="button" aria-label="Comprar Producto 1">
+                  Comprar
+                </button>
               </article>
             </li>
 
             <li role="listitem">
               <article class="product" aria-labelledby="prod2-title">
-                <figure>
-                  <img
-                    src="https://placehold.co/400"
-                    alt="Zapato casual MANACO modelo 2"
-                  />
-                </figure>
-
-                <div class="meta">
-                  <h3 id="prod2-title">Producto 2</h3>
-                  <p class="price">$00.00</p>
-                  <button type="button" aria-label="Comprar Producto 2">
-                    Comprar
-                  </button>
-                </div>
+                <img
+                  src="https://placehold.co/400"
+                  alt="Zapato casual MANACO modelo 2"
+                />
+                <h3 id="prod2-title">Producto 2</h3>
+                <p class="price">$00.00</p>
+                <button type="button" aria-label="Comprar Producto 2">
+                  Comprar
+                </button>
               </article>
             </li>
 
             <li role="listitem">
               <article class="product" aria-labelledby="prod3-title">
-                <figure>
-                  <img
-                    src="https://placehold.co/400"
-                    alt="Botín MANACO modelo 3"
-                  />
-                </figure>
+                <img
+                  src="https://placehold.co/400"
+                  alt="Botín MANACO modelo 3"
+                />
 
-                <div class="meta">
-                  <h3 id="prod3-title">Producto 3</h3>
-                  <p class="price">$00.00</p>
-                  <button type="button" aria-label="Comprar Producto 3">
-                    Comprar
-                  </button>
-                </div>
+                <h3 id="prod3-title">Producto 3</h3>
+                <p class="price">$00.00</p>
+                <button type="button" aria-label="Comprar Producto 3">
+                  Comprar
+                </button>
               </article>
             </li>
           </ul>

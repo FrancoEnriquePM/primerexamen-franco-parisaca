@@ -1,0 +1,187 @@
+/* --- Estilos base (mobile-first) --- */
+:root {
+  --page-bg: #ffffff;
+  --line: #999;
+  --accent: #333;
+  --button-bg: #f3f3f3;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+  color: var(--accent);
+  background: #fff;
+  display: flex;
+  justify-content: center; /* centra diseño tipo wireframe */
+  padding: 24px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Foco visible en enlaces y botones */
+a:focus,
+button:focus {
+  outline: 3px solid #ff9800; /* naranja accesible */
+  outline-offset: 2px;
+}
+
+/* caja principal visual (como el marco del wireframe) */
+main.page {
+  width: 100%;
+  max-width: 980px; /* ancho razonable para desktop */
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--page-bg);
+}
+
+/* Header: logo (h1) y nav */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 2px solid var(--line);
+  background: #fff;
+}
+header h1 {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+nav[aria-label] ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+nav a {
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 0.95rem;
+  padding: 6px 8px;
+}
+
+/* Contenido principal */
+main > section.banner {
+  padding: 28px 22px;
+  margin: 20px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  background: #f7f7f7;
+}
+
+/* Sección Productos (título + lista) */
+section#productos {
+  padding: 0 22px 28px 22px;
+}
+#productos h2 {
+  margin: 14px 0;
+  font-size: 1.4rem;
+}
+
+/* Lista semántica de productos: mobile = 1 columna */
+ul.products {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+article.product {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+}
+
+article.product img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+article.product .meta {
+  flex: 1;
+  text-align: left;
+}
+article.product h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  text-align: left;
+}
+article.product p.price {
+  margin: 0 0 8px 0;
+  color: #444;
+  font-weight: 600;
+  text-align: left;
+}
+article.product button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--button-bg);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+footer.site-footer {
+  border-top: 2px solid var(--line);
+  padding: 18px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+/* --- Desktop (>=600px) — muestra banner y productos en 3 columnas como en el wireframe --- */
+@media (min-width: 600px) {
+  /* el banner en la imagen es visible en desktop */
+  main > section.banner {
+    margin: 20px;
+  }
+  ul.products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  article.product {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  article.product figure {
+    margin: 0 auto 10px auto;
+    width: 100%;
+    height: 160px;
+    display: flex;
+  }
+  article.product img {
+    max-width: 100%;
+    max-height: 160px;
+    width: auto;
+    height: auto;
+  }
+}
