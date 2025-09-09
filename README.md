@@ -24,3 +24,13 @@ aria-label="Comprar Producto X" en botones para dar contexto.
 aria-labelledby en cada article para asociarlo con su título.
 
 6.- Contraste y legibilidad: Texto negro (#222) sobre fondo blanco (#fff) con contraste de 15:1, superando el estándar WCAG AA. Se probó con WebAIM Contrast Checker y cumple con nivel AAA.
+
+# Resumen de mejoras usando SEO
+
+1.- Se mejoro el título único y claro: Se mantiene marca + propuesta de valor. Esto mejora clics en buscadores.
+
+2.- Meta description optimizada: Entre 150–160 caracteres, con palabras clave “zapatos MANACO”, “deportivos, casuales y botines”.
+
+3.- Etiquetas Open Graph: Mejoran la vista previa en Facebook, WhatsApp y LinkedIn, aumentando CTR.
+
+4.- Optimización de imágenes: Se usan alt descriptivos con keywords naturales, facilitando SEO en Google Imagenes.
